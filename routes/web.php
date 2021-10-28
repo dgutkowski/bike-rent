@@ -34,7 +34,7 @@ Route::delete('/bikes/{bike}', [App\Http\Controllers\BikeController::class, 'des
 
 Route::get('/reserv/{bike}', [App\Http\Controllers\ReservationController::class, 'show'])->name('reserv.show');
 Route::post('/reserv', [App\Http\Controllers\ReservationController::class, 'store'])->name('reserv.store');
-//Route::post('/reserv', [App\Http\Controllers\ReservationController::class, 'store'])->name('reserv.store');
+Route::get('/', [App\Http\Controllers\ReservationController::class, 'index'])->name('reserv.index');
 
 // User
 

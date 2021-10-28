@@ -21,6 +21,12 @@ class ReservationController extends Controller
         ]);
     }
 
+    /**
+     * Show bike and form for reservation purpose
+     * 
+     * @return View
+     */
+    
     public function show(Bike $bike)
     {
         return view('reserv.show', [ 
@@ -28,13 +34,16 @@ class ReservationController extends Controller
         ]);
     }
 
+    /**
+     * Save record in database
+     * 
+     * @return RedirectResponse
+     */
     public function store(StoreReservationRequest $request)
-    {
+    {        
         $reservation = new Reservation($request->validated());
         $reservation->save();
-        return view('welcome', [
-            'bikes' => Bike::paginate(8)
-        ]);
-        //return redirect(route('reserv.store'));
+
+        return redirect(route('reserv.index'));
     }
 }
