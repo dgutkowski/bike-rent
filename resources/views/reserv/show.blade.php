@@ -60,7 +60,7 @@
                         <div class="col-12">
                             @csrf
                             <input type="hidden" name="bike_id" value="{{ $bike->id }}"/>
-                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
+                            @if(!is_null(Auth::user()))<input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>@endif
                             <button type="submit" class="btn btn-primary" onclick="">
                                 Zarezerwuj
                             </button>
